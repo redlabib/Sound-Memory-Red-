@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
+import 'package:test/settingspage.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+W
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -27,15 +28,23 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>with TickerProviderStateMixin {
+class CustomePageRoute extends PageRouteBuilder {
+  final Widget child;
+
+  CustomePageRoute({required this.child})
+      : super(
+            transitionDuration: Duration(seconds: 2),
+            reverseTransitionDuration: Duration(seconds: 0),
+            pageBuilder: (context, animation, secondaryAnimation) => child);
+}
+
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   final shape = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(80),
   );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -50,8 +59,8 @@ class _MyHomePageState extends State<MyHomePage>with TickerProviderStateMixin {
           ),
         ),
         child: AnimatedBackground(
-          behaviour: BubblesBehaviour() ,
-           vsync: this,
+          behaviour: BubblesBehaviour(),
+          vsync: this,
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,13 +88,16 @@ class _MyHomePageState extends State<MyHomePage>with TickerProviderStateMixin {
                         ))),
                 const SizedBox(height: 16),
                 ElevatedButton(
-                     style: ElevatedButton.styleFrom(
+                    style: ElevatedButton.styleFrom(
                       primary: Colors.red.withOpacity(0.1),
                       minimumSize: Size(150, 80),
                       elevation: 25,
                       shape: shape,
                     ),
-                    onPressed: () { Navigator.push(context, new CustomePageRoute(child: settingspage() ));} ,
+                    onPressed: () {
+                      Navigator.push(
+                          context, new CustomePageRoute(child: settingspage()));
+                    },
                     child: Container(
                         decoration: BoxDecoration(
                           gradient: LinearGradient(colors: [
