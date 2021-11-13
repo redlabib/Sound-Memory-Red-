@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
+import 'package:test/playnowpage.dart';
 import 'package:test/settingspage.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-W
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -72,7 +73,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       elevation: 25,
                       shape: shape,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context, new CustomePageRoute(child: playnowpage()));
+                    },
                     child: Container(
                         decoration: BoxDecoration(
                           gradient: LinearGradient(colors: [
