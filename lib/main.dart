@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
 import 'package:test/settingspage.dart';
+import 'package:test/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,11 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Splash(),
     );
   }
 }
-W
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
