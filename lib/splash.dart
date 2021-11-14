@@ -16,7 +16,7 @@ class _SplashState extends State<Splash> {
   }
 
   _navigatetohome() async {
-    await Future.delayed(Duration(milliseconds: 2000), () {});
+    await Future.delayed(Duration(milliseconds: 2500), () {});
     Navigator.pushReplacement(context,
         MaterialPageRoute(builder: (context) => MyHomePage(title: 'title')));
   }
@@ -24,24 +24,37 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Container(
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/Logo.png'),
-                fit: BoxFit.fill,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFFdaa3e3),
+              Color(0xFFd4689a),
+              Color(0xFFd49768),
+              Color(0xFFf5ede6),
+            ],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),),
+        child: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/Logo.png'),
+                  fit: BoxFit.fill,
+                ),
+                shape: BoxShape.circle,
               ),
-              shape: BoxShape.circle,
             ),
-          ),
-          Container(
-            child: Text('Splash Screen',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          ),
-        ]),
+            Container(
+              child: Text('D N Productions LLC',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            ),
+          ]),
+        ),
       ),
     );
   }
